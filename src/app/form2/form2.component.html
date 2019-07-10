@@ -1,0 +1,77 @@
+{{diagnostic}}
+    <div class="example-container">
+        <form #userForm="ngForm" (ngSubmit)="onView()">
+        <mat-form-field>
+                <input 
+                matInput
+                [(ngModel)]="model.surname" name="surname"
+                #surname="ngModel"
+                placeholder="Фамилия" 
+                required>
+                <mat-error [hidden]="surname.valid || surname.pristine">
+                    Это поле обязательное
+                </mat-error>
+            </mat-form-field>
+        <br>
+            <mat-form-field>
+                
+                <input 
+                matInput 
+                [(ngModel)]="model.name" name="name"
+                #name="ngModel"
+                placeholder="Имя" 
+                required>
+                <mat-error [hidden]="name.valid || name.pristine">
+                        Это поле обязательное
+                    </mat-error>
+            </mat-form-field>
+        
+            <mat-form-field>
+                <input matInput placeholder="Отчество">
+                <mat-hint>Не обязательно</mat-hint>
+                
+            </mat-form-field>
+        
+            <mat-form-field>
+                <mat-label>Дата рождения</mat-label>
+                
+                <input matInput 
+                [(ngModel)]="model.dateOfBirth" name="dateOfBirth"
+                #dateOfBirth="ngModel"
+                [matDatepicker]="picker" 
+                placeholder="Выберите дату">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error [hidden]="dateOfBirth.valid || dateOfBirth.pristine">
+                        Это поле обязательное
+                    </mat-error>
+            </mat-form-field>
+        
+            <mat-form-field>
+                <input 
+                matInput 
+                [(ngModel)]="model.email" name="email"
+                #email="ngModel"
+                placeholder="Email" 
+                required>
+                <mat-error [hidden]="email.valid || email.pristine">
+                        Это поле обязательное
+                    </mat-error>
+            </mat-form-field>
+          
+            <mat-form-field>
+                <input 
+                [(ngModel)]="model.phone" name="phone"
+                #phone="ngModel"
+                matInput placeholder="Телефон">
+                <mat-hint></mat-hint>
+                <mat-error [hidden]="phone.valid || phone.pristine">
+                        Это поле обязательное
+                    </mat-error>
+            </mat-form-field>
+        
+            <button type="submit" [disabled]="!userForm.form.valid">Предпросмотр</button>
+        </form>
+        </div>
+
+        
